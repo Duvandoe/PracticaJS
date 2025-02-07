@@ -94,6 +94,41 @@ function adivina(){
     alert("Perdiste. El número era " + numAdiv);
 }
 
+function incremento(){
+    let x = "x";
+    
+    for(let i = 1; i < 20; i++){
+        x = x + "x";
+        console.log(x);
+    }
+    
+}
+
+function ParyImpar(){
+    let num = parseInt(prompt("Escriba un numero para ver si es par o impoar"));
+    if (num % 2 === 0){
+        alert("El numero es par");
+    }else{
+        alert("El numero es impar");
+    }
+}
+
+function FizzBuzz(){
+    let num = parseInt(prompt("Escriba un numero para ver si es Fizz o Buzz o FizzBuzz"));
+    while(num <= 30){
+        if (num % 3 === 0 && num % 5 === 0){
+            console.log("FizzBuzz");
+        }else if (num % 3 === 0){
+            console.log("Fizz");
+        }else if (num % 5 === 0){
+            console.log("Buzz");
+        }else{
+            console.log(num);
+        }
+        num++;
+    }
+}
+
 adivinar = document.querySelector(".adivinar");
 adivinar.addEventListener("click", adivina);
 
@@ -111,6 +146,15 @@ i.addEventListener("click", ValidarLetra);
 
 e = document.querySelector(".Validar");
 e.addEventListener("click", ValidarNumero);
+
+incremen = document.querySelector(".incrementar");
+incremen.addEventListener("click", incremento);
+
+pares = document.querySelector(".pares");
+pares.addEventListener("click", ParyImpar);
+
+fizz = document.querySelector(".FizzBuzz");
+fizz.addEventListener("click", FizzBuzz);
 
 escriba = document.querySelector(".escriba");
 tabla = document.querySelector(".tabla");
