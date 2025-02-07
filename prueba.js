@@ -56,22 +56,46 @@ function Calculadora(){
     let numero2 = parseInt(prompt("Ingrese otro numero"));
     let operacion = prompt("¿Que operacion quieres hacer?: (+ , -, *, /)");
     let resultado;
-    if(operacion === "+"){
-        resultado = numero1 + numero2;
-        alert("El resultado de la suma es: "+ resultado);
-    }else if (operacion === "-"){
-        resultado = numero1 - numero2;
-        alert("El resultado de la resta es: "+ resultado);
-    }else if (operacion === "*"){
-        resultado = numero1 * numero2;
-        alert("El resultado de la multiplicacion es: "+ resultado);
-    }else if (operacion === "/"){
-        resultado = numero1 / numero2;
-        alert("El resultado de la division es: "+ resultado);
-    }else{
-        alert("Error")
-    }
+    do{
+        if(operacion === "+"){
+            resultado = numero1 + numero2;
+            alert("El resultado de la suma es: "+ resultado);
+        }else if (operacion === "-"){
+            resultado = numero1 - numero2;
+            alert("El resultado de la resta es: "+ resultado);
+        }else if (operacion === "*"){
+            resultado = numero1 * numero2;
+            alert("El resultado de la multiplicacion es: "+ resultado);
+        }else if (operacion === "/"){
+            resultado = numero1 / numero2;
+            alert("El resultado de la division es: "+ resultado);
+        }else{
+            alert("Datos no validos")
+            break;
+        }
+    }while(!isNaN(resultado));
 }
+
+function adivina(){
+    let intentos = 0;
+
+    do{
+        let num = parseInt(prompt("Escribe un numero del 1 al 10 para adivinar"));
+        let numAdiv = Math.floor(Math.random() * 10)+1;
+        if (num === numAdiv){
+            alert("Adivinaste el numero "+ numAdiv);
+            return;
+        }else{
+            alert("No adivinaste el numero " + numAdiv);
+            intentos++;
+        }   
+    }while(intentos<3);
+
+    alert("Perdiste. El número era " + numAdiv);
+}
+
+adivinar = document.querySelector(".adivinar");
+adivinar.addEventListener("click", adivina);
 
 calculadora = document.querySelector(".Calculadora");
 calculadora.addEventListener("click", Calculadora);
