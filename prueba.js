@@ -113,6 +113,25 @@ function ParyImpar(){
     }
 }
 
+function primo() {
+    let num = parseInt(prompt("Escriba un número para ver si es primo"));
+
+    if (num < 2) {
+        alert("El número no es primo"); // Números menores que 2 no son primos
+        return;
+    }
+
+    for (let i = 2; i < num; i++) {
+        if (num % i === 0) {
+            alert("El número no es primo");
+            return;
+        }
+    }
+
+    alert("El número es primo");
+}
+
+
 function FizzBuzz(){
     let num = parseInt(prompt("Escriba un numero para ver si es Fizz o Buzz o FizzBuzz"));
     while(num <= 30){
@@ -152,6 +171,9 @@ incremen.addEventListener("click", incremento);
 
 pares = document.querySelector(".pares");
 pares.addEventListener("click", ParyImpar);
+
+primos = document.querySelector(".primo");
+primos.addEventListener("click", primo);
 
 fizz = document.querySelector(".FizzBuzz");
 fizz.addEventListener("click", FizzBuzz);
