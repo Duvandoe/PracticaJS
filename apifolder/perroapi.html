@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perro</title>
+</head>
+<style>
+     body{
+        display: flex;
+        flex-direction: column;
+        place-items: center;
+    }
+    img{
+        margin: 20px;
+    }
+</style>
+<body>
+    <h1>Busqueda de Perro</h1>
+    <button onclick="perritosrandom()">Perros aleatorio</button>
+    <img id="imagen-perrito" src="" alt="perros">
+</body>
+<script>
+    function perritosrandom(){
+        const url = `https://dog.ceo/api/breeds/image/random`;
+
+        fetch(url)
+        .then(res =>{
+            if(!res.ok){
+                throw new Error("No se pudo hacer")
+            }
+            return res.json();
+        })
+        .then(data =>{
+            document.getElementById("imagen-perrito").src = data.message;
+        }).catch(err =>{
+            throw new Error("No se pudo hacer")
+        });
+    }
+</script>
+</html>

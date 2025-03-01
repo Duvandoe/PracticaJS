@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanye</title>
+</head>
+<body>
+    <h1>API DE FRASES DICHAS POR KAYNE WEST</h1>
+    <button onclick="frases">Obtener frase</button>
+    <p id="frasesdekayne"></p>
+</body>
+<script>
+    setInterval(frases, 10000)
+    function frases(){
+        const KAYNE_URL = `https://api.kanye.rest/`;
+        fetch(KAYNE_URL)
+        .then(res =>{
+            if(!res.ok){
+                throw new Error("No se encontró la frase..")
+            }
+        return res.json();
+        }) 
+        .then(data => {
+            document.getElementById("frasesdekayne").innerText = `${data.quote} - Kanye West`;
+        }).catch(err => {
+            console.error("Error..")
+        })
+    }
+</script>
+</html>

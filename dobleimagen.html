@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/two-up-element@1"></script>
+    <title>Document</title>
+</head>
+<style>
+    two-up{
+        flex: 1;
+    }
+
+    .demos{
+        display: flex;
+        flex-direction: column;
+        max-width: 150px;
+        max-height: 200px;
+    }
+
+    .demo{
+        background: #fff;
+	    height: 100%;
+	    width: 100%;
+    }
+
+    .demo2{
+        background: #fff;
+	    height: 100%;
+	    width: 100%;
+    }
+
+    .demo img{
+        width: 100%;
+        height: 100%;
+        margin-bottom: 10px;    
+    }
+
+    .demo2 img{
+        width: 100%;
+        height: 100%;
+    }
+</style>
+<body>
+    <div class="demos">
+        <div class="demo">
+            <two-up >
+                <img src="/images (1).webp" alt="">
+                <img src="/images.webp" alt="">
+            </two-up>
+        </div>
+        <div class="demo2">
+            <two-up>
+                <img src="/images2.webp" alt="">
+                <img src="Edge_of_Spider-Verse_Vol_2_5_Anka_Variant_Textless.webp" alt="">
+            </two-up>
+        </div>
+    </body>
+    </div>
+</html>

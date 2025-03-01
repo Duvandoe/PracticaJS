@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chistes random</h1>
+    <button onclick="chistes()">Cambiar chiste</button>
+    <p id="chistes-random"></p>
+</body>
+<script>
+    function chistes(){
+        const URL_JOKES = `https://v2.jokeapi.dev/joke/Any`;
+        fetch(URL_JOKES)
+        .then(res => {
+            if(!res.ok){
+                throw new Error("No se pudo completar");
+            }
+        return res.json();
+        }) 
+        .then(data => {
+            document.getElementById("chistes-random").innerText = 
+            data.type === "single" ? data.joke : `${data.setup} - ${data.delivery} - ${data.id}`;
+        }).catch(err => {
+            throw new Error("Error...")
+        });
+    }
+</script>
+</html>

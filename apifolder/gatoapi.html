@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api</title>
+</head>
+<style>
+    body{
+        display: flex;
+        flex-direction: column;
+        place-items: center;
+    }
+    img{
+        margin: 20px;
+    }
+</style>
+<body>
+    <h1>Gatos Aleatorios</h1>
+    <button onclick="cambiodegato()">¡¡GATITOS ALEATORIOS!!</button>
+    <img id="imagen-gato" src="" alt="gatos" width="300">
+</body>
+<script>
+    
+    function cambiodegato(){
+        const CAT_RANDOM = `https://api.thecatapi.com/v1/images/search`;
+
+        fetch(CAT_RANDOM)
+        .then(res =>{
+            if(!res.ok){
+                throw new Error("No está funcionando..")
+            }
+        return res.json();
+        })
+        .then(data => {
+            document.getElementById("imagen-gato").src = data[0].url;
+        })
+        .catch(err =>{
+            throw new Error("Algo está fallando");
+        })
+    }
+</script>
+</html>
